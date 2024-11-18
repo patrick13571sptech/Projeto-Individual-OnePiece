@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="telaCadastro.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece - Cadastro</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:3333;">
+
+</head>
+
+<body>
+   
+    <div class="container">
+        <div class="painel">
+            <b>
+                <h1 class="tituloMugiwara">Venha ser um Mugiwara!</h1>
+            </b>
+
+            <span>Nome:</span>
+            <input oninput="nome()" id="ipt_nome"class="input_cadastro" type="text" placeholder="Digite o seu nome">
+            <div class="nome_validar" id="input_nome"></div>
+
+            <span>Email:</span>
+            <input oninput="email()" id="input_email"class="input_cadastro"  type="text" placeholder="Digite seu email">
+            <div class="email_validar" id="div_email"></div>
+
+            <span>Senha:</span>
+            <input oninput="analisar()" id="input_senha" class="input_cadastro" type="password" placeholder="Digite sua senha">
+            <div class="mensagem" id="div_mensagem"></div>
+
+            <span>Confirme sua senha:</span>
+            <input oninput="confirmar()" id="confirmar_senha" class="input_cadastro" type="password"
+                placeholder="Confirme sua senha">
+            <div class="confirmar_senha" id="confirmar_mensagem"></div>
+
+            <br>
+            <button onclick="cadastrar()" class="botao">Cadastrar</button>
+            <div class="cadastro_link">
+                Já faz parte do Bando?<a href="../public/login.html"><br><b>Inicie sessão</b></a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+    
+        <div class="icone">
+            <p><a href="mailto:patrick.silva@sptech.school?subject=Insira%20um assunto" style="color: white;">Clique aqui para me enviar um e-mail!</a><p></p>
+
+            <img src="../public/assets/imgs/onepiecefanletter.jpg" alt="">
+           
+            patrick.silva@sptech.school</p>
+        </div>
+        <div class="icone">
+            <a href="https://wa.me/5511946344356" target="_blank">
+                <img src="../public/assets/imgs/luffyzapverde.jpg" alt="">
+            </a>
+            <p>(11) 94634-4356</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+<script>
+
+    function analisar() {
+        var nome = ipt_nome.value;
+        var senha = input_senha.value;
+        var mensagem = "";
+        var tamanho_senha = senha.length;
+        var confirmar = confirmar_senha.value;
+        var temexclama = senha.includes('!');
+        var temarroba = senha.includes('@');
+        var temhash = senha.includes('#');
+        var temcifrao = senha.includes('$');
+        var temporcen = senha.includes('%');
+        var temchapeu = senha.includes('^');
+        var temezao = senha.includes('&');
+        var temaster = senha.includes('*');
+        var temparentum = senha.includes('(');
+        var temparentois = senha.includes(')');
+        var temvirgula = senha.includes(',');
+        var temponto = senha.includes('.');
+        var teminterrogacao = senha.includes('?');
+        var temaspas = senha.includes('"');
+        var temigual = senha.includes(':');
+        var temcolcheteum = senha.includes('{');
+        var temcolchetedois = senha.includes('}');
+        var tembarrao = senha.includes('|');
+        var temmenorque = senha.includes('<');
+        var temmaiorque = senha.includes('>');
+        var ESPECIAIS = (temexclama || temarroba || temhash || temcifrao || temporcen || temchapeu
+        ||   temezao || temaster || temparentum || temparentois || temvirgula || temponto || teminterrogacao ||
+         temaspas || temigual || temcolcheteum || temcolchetedois || tembarrao || temmenorque || temmaiorque
+        )
+        var maius = senha.toUpperCase();
+        var minus = senha.toLowerCase();
+        var temminuscula = senha != maius;
+        var temmaiuscula = senha != minus;
+
+        
+        
+        if (tamanho_senha >= 8 && ESPECIAIS && temmaiuscula && temminuscula) {
+            mensagem += `A senha é forte`
+            div_mensagem.style.color = 'green'
+        } else {
+            mensagem += `A senha deve ter pelo menos 8 caracteres, letra maiúscula e minúscula e um caractere especial.`
+            div_mensagem.style.color = 'red'
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function nome(){
+
+        var nome = ipt_nome.value;
+        var mensagem = "";
+
+        if (nome.length < 2){
+            mensagem+= `Seu nome precisa ter ao menos 2 caracteres! :)`
+            input_nome.style.color = 'red'
+        } else {
+            mensagem+= `Nome válido!`
+            input_nome.style.color = 'green'
+        }
+
+        input_nome.innerHTML = mensagem;
+    }
+
+    function confirmar() {
+    var senha = input_senha.value;
+    var confirmar = confirmar_senha.value;
+    var mensagem = ''; 
+
+    if (senha === confirmar && senha.length > 0) {
+        mensagem = `Senhas coincidem`; 
+        confirmar_mensagem.style.color = 'green';
+    } else if (senha.length > 0) {
+        mensagem = `Senhas devem ser iguais`; 
+        confirmar_mensagem.style.color = 'red';
+    } else {
+        mensagem = ''; 
+    }
+
+    confirmar_mensagem.innerHTML = mensagem;
+}
+
+
+    function email() {
+        var mensagem = ' '
+        var email = input_email.value
+        var email_com = email.endsWith('.com')
+        var email_br = email.endsWith('.br')
+        var email_school = email.endsWith('school')
+        var arroba = email.includes('@')
+
+        if ((email_br || email_com || email_school) && arroba) {
+            mensagem += `Email Válido`
+            div_email.style.color = 'green'
+        } else {
+            mensagem += `Email Inválido`
+            div_email.style.color = 'red'
+        }
+
+        div_email.innerHTML = mensagem
+
+    }
+
+    async function cadastrar() {
+    const nome = document.getElementById("ipt_nome").value;
+    const email = document.getElementById("input_email").value;
+    const senha = document.getElementById("input_senha").value;
+    const confirmarSenha = document.getElementById("confirmar_senha").value;
+
+    if (senha !== confirmarSenha) {
+        alert("As senhas não coincidem!");
+        return;
+    }
+
+    const usuario = { nome, email, senha };
+
+    try {
+        const response = await fetch("http://localhost:3333/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(usuario),
+        });
+
+        const result = await response.json(); // Obter o JSON de resposta
+
+        if (response.ok) {
+            alert("Usuário cadastrado com sucesso!");
+            window.location.href = "../login.html";
+        } else {
+            // Aqui, você agora pode acessar a mensagem de erro
+            alert("Erro ao cadastrar: " + (result.error || "Erro desconhecido"));
+        }
+    } catch (error) {
+        console.error("Erro no cadastro:", error);
+        alert("Não foi possível realizar o cadastro.");
+    }
+}
+</script>
