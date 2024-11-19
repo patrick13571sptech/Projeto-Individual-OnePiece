@@ -1,0 +1,17 @@
+footer {
+    
+    background: linear-gradient(180deg, #000000 0%, #000000 100%);
+    color: black;
+    width: 99.5%;
+    height: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    margin-top: 300px;
+    position: absolute;
+}
+
+footer img{
+    height: 30px;
+    width: 30px;
+}
