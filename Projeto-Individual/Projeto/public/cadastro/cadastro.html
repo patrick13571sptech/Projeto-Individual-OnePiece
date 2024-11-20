@@ -39,7 +39,7 @@
             <br>
             <button onclick="cadastrar()" class="botao">Cadastrar</button>
             <div class="cadastro_link">
-                Já faz parte do Bando?<a href="../login.html"><br><b>Inicie sessão</b></a>
+                Já faz parte do Bando?<a href="../login/login.html"><br><b>Inicie sessão</b></a>
             </div>
         </div>
     </div>
@@ -197,7 +197,7 @@
 
         if (response.ok) {
             alert("Usuário cadastrado com sucesso!");
-            window.location.href = "../login.html";
+            window.location.href = "../login/login.html";
         } else {
             // Aqui, você agora pode acessar a mensagem de erro
             alert("Erro ao cadastrar: " + (result.error || "Erro desconhecido"));

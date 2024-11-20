@@ -1,17 +1,58 @@
-footer {
-    
-    background: linear-gradient(180deg, #000000 0%, #000000 100%);
-    color: black;
-    width: 99.5%;
-    height: 30px;
+body {
     display: flex;
-    justify-content: space-evenly;
-    padding: 5px;
-    margin-top: 300px;
-    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Faz o body ocupar toda a altura da tela */
+    margin: 0; /* Remove margens padrão */
+    background-color: #f0f0f0; /* Fundo neutro para destacar o container */
+}
+.container .input_login {
+    display: flex;
+   border: 2px solid rgb(150, 146, 31);
+   width: 100%;
+   text-align: center;
+}
+.login {
+    border: 2px solid rgb(255, 6, 6); /* Borda ao redor do conteúdo */
+    border-radius: 20px; /* Ajuste o raio para suavizar */
+    padding: 20px; /* Espaço interno no container */
+    background-color: white; /* Fundo do container */
+    text-align: center; /* Centraliza o texto dentro */
 }
 
-footer img{
-    height: 30px;
-    width: 30px;
+footer {
+    display: flex;
+    background: linear-gradient(180deg, #000000 0%, #000000 100%);
+    color: white;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 40px; /* Ajuste conforme necessário */
+    justify-content: space-evenly;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    align-items: center;
 }
+
+footer img {
+    height: 35px;
+    width: 35px;
+}
+
+footer .icone {
+    display: flex;
+    flex-direction: row; /* Texto abaixo da imagem */
+    align-items: center;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    
+}
+
+
+
+
