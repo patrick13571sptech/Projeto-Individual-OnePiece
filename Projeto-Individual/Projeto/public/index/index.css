@@ -1,0 +1,151 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    background-image: url("../assets/imgs/wompas.jpg");
+    background-size: auto;
+    background-position: center; 
+    background-repeat: repeat;
+    height: 100vh; 
+}
+
+/* Header */
+header {
+    background-color: #f8c40d; /* Cor do ouro One Piece */
+    color: #111;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #1a1a1a; /* Linha preta estilo One Piece */
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+.header-buttons button {
+    background-color: #1a1a1a;
+    color: #f8c40d;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.header-buttons button:hover {
+    background-color: #333;
+}
+
+/* Main content */
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    gap: 20px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  
+}
+
+/* Episódio */
+.episode-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    border: 3px solid #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+/* Alternância de cores entre episódios */
+.episode-container:nth-of-type(odd) {
+    background-color: #f8c40d; /* Fundo amarelo para episódios em posições ímpares */
+}
+
+.episode-container:nth-of-type(even) {
+    background-color: #f8c40d; /* Fundo branco para episódios em posições pares */
+}
+
+
+
+.episode-container img.ods-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.episode {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+}
+
+.episode img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.text-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify; /* Alinha o texto para facilitar a leitura */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    height: auto; /* Ajusta a altura conforme o conteúdo */
+    overflow: auto; /* Permite rolagem se o texto for muito grande */
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+    line-height: 1.6; /* Adiciona espaçamento entre as linhas */
+}
+
+
+/* Footer */
+footer {
+    background-color: #f8c40d;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 6px;
+    border-top: 3px solid #1a1a1a;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+footer a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #333;
+}
+
+

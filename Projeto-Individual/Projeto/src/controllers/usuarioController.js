@@ -31,7 +31,7 @@ async function autenticar(req, res) {
 
         if (usuario.length === 1) {
             const idUsuario = usuario[0].idUsuario;
-            const episodios = await episodioModel.buscarEpisodiosporId(idUsuario);
+            const episodios = await episodioModel.buscarEpisodiosPorIntervalo(idUsuario);
             res.status(200).json({
                 message: "Autenticação bem-sucedida!",
                 usuario: {

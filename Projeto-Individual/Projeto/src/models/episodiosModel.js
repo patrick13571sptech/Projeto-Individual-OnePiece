@@ -1,9 +1,17 @@
+
 const db = require("../database/config");
 
-async function buscarEpisodiosporId(idUsuario) {
+async function buscarEpisodiosPorIntervalo(idUsuario, min, max) {
     return db.executar(
-      "SELECT u.nome, e.idEpisodios as número_episódio, e.nomeEpisodio, e.categorizacaoEpisodio as humor_episódio, o.idOds FROM episodios as e JOIN usuario as u ON e.fkUsuario = u.idUsuario JOIN ods as o ON e.fkOds = o.idOds WHERE u.idUsuario = ?", [idUsuario]
+        `SELECT e.idEpisodios AS numeroEpisodio, e.fkOds 
+         FROM episodios AS e 
+         JOIN usuario AS u ON e.fkUsuario = u.idUsuario 
+         WHERE u.idUsuario = ? AND e.idEpisodios BETWEEN ? AND ?`,
+        [idUsuario, min, max]
     );
 }
 
-module.exports = { buscarEpisodiosporId };
+module.exports = { buscarEpisodiosPorIntervalo };
+
+
+

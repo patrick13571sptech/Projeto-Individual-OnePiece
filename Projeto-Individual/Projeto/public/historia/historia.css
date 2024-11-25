@@ -1,0 +1,76 @@
+/* Reinício do estilo global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #2b2b2b;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #f8c40d;
+}
+
+.header-content h1 {
+    font-family: 'Pirata One', cursive;
+    color: #f8c40d;
+    margin-bottom: 10px;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+.nav-link {
+    color: #f0f0f0;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #f8c40d;
+}
+
+/* Estilo das seções */
+main {
+    flex: 1;
+    padding: 30px 20px;
+}
+
+main h2 {
+    font-family: 'Pirata One', cursive;
+    color: #f8c40d;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+main p {
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Rodapé */
+footer {
+    background-color: #f8c40d;
+    color: #000000;
+    text-align: center;
+    padding: 15px;
+    border-top: 3px solid #000000;
+}

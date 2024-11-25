@@ -11,10 +11,23 @@ var express = require("express");
 const cors = require("cors");
 var path = require("path");
 
-var PORTA_APP = process.env.APP_PORT; //Porta do arquivo .env
-var HOST_APP = process.env.APP_HOST; // Host servidor
+const helmet = require('helmet');
+const app = express();
 
-var app = express();
+app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
+            },
+        },
+    })
+);
+
+
+var PORTA_APP = process.env.APP_PORT;
+var HOST_APP = process.env.APP_HOST; 
 
 var usuarioRouter = require("./src/routes/usuarios");
 var odsRouter = require("./src/routes/ods");
@@ -29,7 +42,6 @@ app.use((req, res, next) => {
 });
 
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -41,6 +53,11 @@ app.use(cors({
 app.use("/usuarios", usuarioRouter);
 app.use("/ods", odsRouter);
 app.use("/episodio", episodiosRouter);
+
+app.use(express.static('public'));
+
+const dashboardRouter = require('../Projeto/src/routes/dashboard');
+app.use('/dashboard', dashboardRouter);
 
 
 app.listen(PORTA_APP, function () {

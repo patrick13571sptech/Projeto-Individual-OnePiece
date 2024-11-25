@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:3333;">
+</head>
+
+<body>
+   
+    <div class="container">
+
+        <aside class="sidebar">
+        
+                <img src="/assets/imgs/logoOnePiece.png" alt="Logo One Piece" class="logo">
+            
+            <nav class="nav-menu">
+                <button onclick="window.location.href='/index/index.html'" class="nav-button">Início</button>
+                <button onclick="window.location.href='/historia/historia.html' "class="nav-button">História</button>
+            </nav>
+        </aside>
+        <div class="metricas-container">
+            <div class="metricas1">
+                Número mínimo do intervalo:<input type="number" id="ipt_episodio_min">
+            </div> 
+            <div class="metricas2">
+                Número máximo do intervalo:<input type="number" id="ipt_episodio_max">
+            </div>
+            <div class="metricas3">
+                <!-- O DASHBOARD É ENCONTRADO EM JS > DASHBOARD.JS -->
+                <button onclick="dashboard()">Ver dados e métricas:</button> 
+            </div>
+        </div>
+        <div>
+            <canvas id="grafico"></canvas> <!-- Canvas para renderizar o gráfico -->
+        </div>
+    </div>
+
+    <script src="/js/chart.js"></script>
+    <script src="/js/dashboard.js"></script> 
+    <footer>
+        <p>© 2024 Projeto One Piece. Todos os direitos reservados.</p>
+    </footer>
+    
+</body>
+</html>
